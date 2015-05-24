@@ -1,23 +1,38 @@
-Getting and Cleaning Data Course Project
+Getting_and_Cleaning_Data Course Project
+========================================
+
 Purpose
-The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. You will be graded by your peers on a series of yes/no questions related to the project. You will be required to submit:
-1. a tidy data set as described below;
-2. a link to a Github repository with your script for performing the analysis; and
-3. a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md.
-You should also include a README.md in the repo with your scripts. This repo explains how all of the scripts work and how they are connected.
-Objectives
-run_analysis.R performs the following:
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement.
-3. Uses descriptive activity names to name the activities in the data set
-4. Appropriately labels the data set with descriptive activity names.
-5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-run_analysis.R
-1. It downloads the UCI HAR Dataset data set and puts the zip file working directrory. After it is downloaded, it unzips the file into the UCI HAR Dataset folder.
-2. It loads the train and test data sets and appends the two datasets into one data frame. This is done using rbind.
-3. It extracts just the mean and standard deviation from the features data set. This is done using grep.
-4. After cleaning the column names, these are applied to the x data frame.
-5. After loading activities data set, it converts it to lower case using tolower and removes underscore using gsub.activity and subject column names are named for y and subj data sets, respectively.
-6. The three data sets, x, y and subj, are merged. Then, it is exported as a txt file into the Project folder in the same working directory, named merged.txt.
-7. The mean of activities and subjects are created into a separate tidy data set which is exported into the Project folder as txt file; this is named average.txt.
+========
+The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis.
+
+Introduction
+============
+The base data set used for this comes from the UCI Machine Learning experiment. The experiments were carried out producing a collection of raw data from the accelerometers from the Samsung Galaxy S smartphone.
+This data has 561 features not labeled. The labels for test data are in the x_test.txt file. The test subjects are in the subject_text.txt file and the activity labels are in y_test.txt file. The same applies for the training data.
+
+The original dataset included the following statistics (in bold the ones used for the tidy dataset):
+* mean():	Mean value[Used]
+* std():	Standard deviation[Used]
+* mad():	Median absolute deviation
+* max():	Largest value in array
+* min():	Smallest value in array
+* sma():	Signal magnitude area
+* energy():	Energy measure. Sum of the squares divided by the number of values.
+* iqr():	Interquartile range
+* entropy():	Signal entropy
+* arCoeff():	Autorregresion coefficients with Burg order equal to 4
+* correlation():	Correlation coefficient between two signals
+* maxInds():	Index of the frequency component with largest magnitude
+* meanFreq():	Weighted average of the frequency components to obtain a mean frequency
+* skewness():	Skewness of the frequency domain signal
+* kurtosis():	kurtosis of the frequency domain signal
+* bandsEnergy():	Energy of a frequency interval within the 64 bins of the FFT of each window
+
+The script
+==========
+The run_analysis.R script will merge the test and training datasets into one dataset, process the relevant columns and extracts one final independent tidy dataset.
+
+The Code Book
+The CodeBook.md file explains the transformations and the resulting data and variables
+
 
